@@ -7,13 +7,12 @@ SECRET_KEY = 'z+ksf@)0d^qojbh4rnp4b1to$hq&*tt(3bs$gf(3i267g$k9ln'
 DEBUG = True
 
 import os
-ALLOWED_HOSTS = ['*']  # ya apna render domain daal do baad mein
+ALLOWED_HOSTS = ['*']  
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 import os
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(str(BASE_DIR), 'static')]
+STATIC_ROOT = os.path.join(str(BASE_DIR), 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # ye line yahin honi chahiye
 
 MIDDLEWARE = [
