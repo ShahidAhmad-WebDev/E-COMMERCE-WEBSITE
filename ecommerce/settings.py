@@ -10,11 +10,14 @@ import os
 ALLOWED_HOSTS = ['*']  # ya apna render domain daal do baad mein
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [BASE_DIR/ 'static']
+STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # ye line yahin honi chahiye
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ye add karo (security ke just neeche)
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # ye line yahin honi chahiye
+    'django.contrib.sessions.middleware.SessionMiddleware',
     ...
 ]
 
